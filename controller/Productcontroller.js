@@ -22,7 +22,8 @@ const setProduct = asyncHandler (
         } 
 ) 
 
-const updateProduct = asyncHandler( async (req, res)=>{
+const updateProduct = asyncHandler(
+     async (req, res)=>{
  
  const product = await Product.findById(req.params.id)
 
@@ -36,7 +37,8 @@ const updateProduct = asyncHandler( async (req, res)=>{
  })
    
     res.status(200).json(updateProduct)
-}) 
+}
+) 
  
 const deleteProduct = async (req, res)=>{
    

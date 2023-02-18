@@ -22,6 +22,7 @@ const setTshirt = asyncHandler (
         } 
 ) 
 
+// put
 const updateTshirt = asyncHandler( async (req, res)=>{
  
  const  tshirt  = await  Tshirt.findById(req.params.id)
@@ -38,12 +39,13 @@ const updateTshirt = asyncHandler( async (req, res)=>{
     res.status(200).json(updateTshirt)
 }) 
  
+//delete
 const deleteTshirt = async (req, res)=>{
    
     const  tshirt  =await Tshirt.findById(req.params.id)
     if(!tshirt ){
         res.status(400)
-        throw new Error("Tshirt  not found")
+        throw new Error("Tshirt not found")
      }
 
      await  tshirt.remove()
