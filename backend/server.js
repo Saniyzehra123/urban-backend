@@ -10,13 +10,19 @@ connectDB()
 
 const app = express()
 
+// app.get("/api/bottom",(req,res)=>{
+//     res.json({message:"get bottom"})
+// })
+
 app.use(express.json ())
 app.use(cors());
 
 app.use(express.urlencoded({extended:false}))
 
-app.use("/api/v1",require("./routers/productRoute"))
+app.use("/api/shirt",require("./routers/productRoute"))
 app.use("/api/users",require("./routers/userRoute"))
+app.use("/api/tshirt",require("./routers/tshirtRoute"))
+app.use("/api/bottom",require("./routers/bottomRoute"))
 app.use("/api/cart",require("./routers/cartRoute"))
 
 

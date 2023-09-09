@@ -7,6 +7,19 @@ const getTshirt =  asyncHandler (async (req,res) =>{
     const  tshirt = await Tshirt.find()
     res.status(200).json(tshirt)
 } )
+// const getTshirtbyid = async (req, res)=>{
+   
+//     const  tshirt  =await Tshirt.findById(req.params.id)
+//     if(!tshirt ){
+//         res.status(400)
+//         throw new Error("Tshirt not found")
+//      }
+
+    
+//     res.status(200).json(tshirt)
+
+// }
+ 
 
 //post
 const setTshirt = asyncHandler (
@@ -57,5 +70,6 @@ module.exports={
     getTshirt,
     setTshirt,
     updateTshirt,
+    // getTshirtbyid,
     deleteTshirt
 }
