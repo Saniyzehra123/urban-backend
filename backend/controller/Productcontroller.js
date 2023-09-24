@@ -39,6 +39,19 @@ const updateProduct = asyncHandler(
     res.status(200).json(updateProduct)
 }
 ) 
+
+// GET a prodduct by ID
+const getProductById = asyncHandler(async (req, res) => {
+
+    const prodduct = await Product.findById(req.params.id);
+    
+    if (!prodduct) {
+    res.status(404).json({ error: 'prodduct not found' });
+    } else {
+    res.status(200).json(prodduct);
+    }
+});
+ 
  
 const deleteProduct = async (req, res)=>{
    
@@ -57,5 +70,6 @@ module.exports={
     getProduct,
     setProduct,
     updateProduct,
+    getProductById,
     deleteProduct
 }

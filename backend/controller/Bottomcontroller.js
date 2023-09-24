@@ -39,6 +39,18 @@ const updateBottom  = asyncHandler( async (req, res)=>{
    
     res.status(200).json(updateBottom)
 }) 
+
+// GET a bottom by ID
+const getBottomById = asyncHandler(async (req, res) => {
+
+    const bottom = await Bottom.findById(req.params.id);
+    
+    if (!bottom) {
+    res.status(404).json({ error: 'Bottom not found' });
+    } else {
+    res.status(200).json(bottom);
+    }
+});
  
 //delete
 const deleteBottom  = async (req, res)=>{
@@ -58,5 +70,6 @@ module.exports ={
     getBottom,
     setBottom,
     updateBottom,
+    getBottomById,
     deleteBottom
 }
