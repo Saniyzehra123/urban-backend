@@ -25,19 +25,15 @@ const setBottom = asyncHandler (
 
 // put
 const updateBottom  = asyncHandler( async (req, res)=>{
- 
- const bottom  = await Bottom.findById(req.params.id)
-
- if(!bottom ){
-    res.status(400)
-    throw new Error("Bottom not found")
- }
-
- const updateBottom = await Bottom.findByIdAndUpdate(req.params.id,req.body ,{
-    new:true,
- })
-   
-    res.status(200).json(updateBottom)
+    const bottom  = await Bottom.findById(req.params.id)
+        if(!bottom ){
+            res.status(400)
+            throw new Error("Bottom not found")
+        }
+        const updateBottom = await Bottom.findByIdAndUpdate(req.params.id,req.body ,{
+            new:true,
+        })
+        res.status(200).json(updateBottom)
 }) 
 
 // GET a bottom by ID

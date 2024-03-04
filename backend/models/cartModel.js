@@ -1,27 +1,10 @@
 const mongoose =  require("mongoose")
-const Product =require("../models/productModel")
- 
-
-// const cartSchema = new mongoose.Schema({
-//     id: { type: Number, required: true },
-//     title: { type: String, required: true },
-//     image: { type: String, required: true },
-//     price: { type:  Number, required: true },
-//     cate : {type: String, required : true},
-//     userId : {type: String, required : true}
-// }
-// ,
-
-//   {
-//      versionKey: false,
-//     timestamps: true,
-//    },
-//  )
+const Product =require("./tshirtModel")
 
 const cartItemSchema = new mongoose.Schema({
   product: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'Product',
+    ref: 'Tshirt',
     required: true
   },
   // user: {
